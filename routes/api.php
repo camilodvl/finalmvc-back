@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseProgramController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,9 @@ Route::get('program/{id}', [ProgramController::class, 'getById']);
 Route::get('course', [CourseController::class, 'index']);
 Route::post('course', [CourseController::class, 'store']);
 Route::get('course/{id}', [CourseController::class, 'getById']);
+
+
+Route::post('courseprogram', [CourseProgramController::class, 'store']);
 
 
 
