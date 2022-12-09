@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+
+Route::get('course', [CourseController::class, 'index']);
+
+
+Route::get('program', [ProgramController::class, 'index']);
 
