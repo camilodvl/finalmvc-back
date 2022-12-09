@@ -28,10 +28,13 @@ Route::post('program', [ProgramController::class, 'store']);
 Route::get('program/{id}', [ProgramController::class, 'getById']);
 
 
+
+//***************CURSOS*****************
 Route::get('course', [CourseController::class, 'index']);
 Route::post('course', [CourseController::class, 'store']);
 Route::get('course/{id}', [CourseController::class, 'getById']);
-
+Route::delete('course/{id}/destroy', [CourseController::class, 'destroy']);
+Route::put('course/{id}/update', [CourseController::class, 'update']);
 
 Route::post('courseprogram', [CourseProgramController::class, 'store']);
 

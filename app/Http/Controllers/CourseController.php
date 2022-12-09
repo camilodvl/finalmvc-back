@@ -32,8 +32,30 @@ class CourseController extends Controller
     {
 
         $course = Course::find($id);
-        
+
         return response()->json($course);
+
+    }
+
+    public function destroy($id)
+    {
+
+        $course = Course::destroy($id);
+        
+        return response()->json("Mensaje: eliminado");
+
+    }
+
+    
+    public function update(Request $request, $id)
+    {
+
+        $course = Course::find($id);
+        $course->update($request->all());
+        
+        return response()->json([
+            "Mensaje"=>"Actualizado"
+        ]);
 
     }
 }
