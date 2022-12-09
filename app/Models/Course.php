@@ -11,6 +11,11 @@ class Course extends Model
 
     protected $fillable = [
         'name',
+        'credits',
+        'teacher',
+        'pre_requisite',
+        'a_hours',
+        'd_hours'
     ];
 
     public function programs(){

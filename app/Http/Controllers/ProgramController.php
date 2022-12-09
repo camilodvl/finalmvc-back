@@ -12,4 +12,24 @@ class ProgramController extends Controller
         $programs = Program::with('courses')->get();
         return $programs;//response()->json($programs);
     }
+
+
+    public function store(Request $request)
+    {
+
+        Program::create([
+            'name'=>$request->name
+        ]);
+
+    }
+
+
+    public function getById($id)
+    {
+
+        $program = Program::with('courses')->find($id);
+        
+        return response()->json($program);
+
+    }
 }

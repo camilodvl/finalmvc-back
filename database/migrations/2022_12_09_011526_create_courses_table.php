@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("credits");
+            $table->string("teacher");
+            $table->string("pre_requisite");
+            $table->integer("a_hours");
+            $table->integer("d_hours");
             $table->timestamps();
         });
     }
