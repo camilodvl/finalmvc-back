@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseProgramController;
 use App\Http\Controllers\ProgramController;
@@ -17,10 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
+
+
+Route::middleware(['auth:sanctum'])->group(function(){
+    Route::get('course', [CourseController::class, 'index']);
+});
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::get('logout', [AuthController::class, 'logout']);
+
 
 
 Route::get('program', [ProgramController::class, 'index']);
@@ -30,7 +42,7 @@ Route::get('program/{id}', [ProgramController::class, 'getById']);
 
 
 //***************CURSOS*****************
-Route::get('course', [CourseController::class, 'index']);
+
 Route::post('course', [CourseController::class, 'store']);
 Route::get('course/{id}', [CourseController::class, 'getById']);
 Route::delete('course/{id}/destroy', [CourseController::class, 'destroy']);
